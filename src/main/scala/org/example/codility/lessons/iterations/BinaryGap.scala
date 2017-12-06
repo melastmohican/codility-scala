@@ -31,7 +31,7 @@ object BinaryGap {
   }*/
 
 
-  def solution(n: Int): Int = {
+  /*def solution(n: Int): Int = {
 
     @tailrec
     def solve(n: Int, count: Int = 0, max: Int = 0, fl: Boolean = false): Int =
@@ -39,11 +39,25 @@ object BinaryGap {
         case _ if n <= 0 => math.max(count, max)
         case (0, false) => solve(n / 2, count, max, fl)
         case (0, true) => solve(n / 2, count + 1, max, fl)
-        case (1, _) => solve(n / 2, 0, math.max(count, max), true)
+        case (1, _) => solve(n / 2, 0, math.max(count, max), fl = true)
 
       }
 
     solve(n)
+  }*/
+
+  def solution(n: Int): Int = {
+    val digits = Integer.toBinaryString(n).toList
+    var maxLength = 0
+    var length = 0
+    for (digit <- digits) {
+      if (digit == '0') length += 1
+      else {
+        if (maxLength < length) maxLength = length
+        length = 0
+      }
+    }
+    maxLength
   }
 }
 
