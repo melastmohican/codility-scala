@@ -1,4 +1,4 @@
-package org.example.codility.lessons.ibonaccinumbers
+package org.example.codility.lessons.fibonaccinumbers
 
 import org.specs2.mutable.Specification
 
